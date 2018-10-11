@@ -12,7 +12,8 @@ public class train1008 {
 
 	public static void main(String[] args) {
 		//train1001();
-		train1002();
+		//train1002();
+		train1003(5,27);
 	}
 
 	public static void train1001() {
@@ -83,8 +84,8 @@ A5 = 被5除后余4的数字中最大数字。
 		int A3 = 0;
 		double A4 = 0;
 		int A5 = 0;
-
 		int num = 0;
+		int num4 = 0;
 
 		for (int i = 0;i<inC.length;i++){
 			//A1
@@ -94,12 +95,15 @@ A5 = 被5除后余4的数字中最大数字。
 			}
 			//A2
 			if (Integer.valueOf(inC[i])%5==1){
-				num+=1;
-				if (num%2!=0){
-					A2+=Integer.valueOf(inC[i]);
-				}else{
-					A2-=Integer.valueOf(inC[i]);
+
+				int tmp = 0;
+				if (num%2!=1){
+					tmp =Integer.valueOf(inC[i]);
+					A2+=tmp;
+				}else{tmp =Integer.valueOf(inC[i]);
+					A2-=tmp;
 				}
+				num+=1;
 
 			}
 			//A3
@@ -111,12 +115,11 @@ A5 = 被5除后余4的数字中最大数字。
 			if (Integer.valueOf(inC[i])%5==3){
 
 
-
+				num4+=1;
 				A4+=Integer.valueOf(inC[i]);
-				num+=1;
-				A4 = A4/num;
-//				java.text.DecimalFormat df =new java.text.DecimalFormat("#.0");
-//				df.format(A4);
+
+
+
 
 			}
 			//A5
@@ -127,7 +130,62 @@ A5 = 被5除后余4的数字中最大数字。
 				}
 			}
 		}
+		A4 = A4/num4;
+		java.text.DecimalFormat df =new java.text.DecimalFormat("#.0");
+		df.format(A4);
+		System.out.println(A1+" "+A2+" "+A3+" "+df.format(A4)+" "+A5);
+	}
 
-		System.out.println(A1+" "+A2+" "+A3+" "+A4+" "+A5);
+	public static void train1003(int start,int end) {
+		/*
+		题目描述
+令Pi表示第i个素数。现任给两个正整数M <= N <= 10000，请输出PM到PN的所有素数。
+
+输入描述:
+输入在一行中给出M和N，其间以空格分隔。
+
+
+输出描述:
+输出从PM到PN的所有素数，每10个数字占1行，其间以空格分隔，但行末不得有多余空格。
+
+输入例子:
+5 27
+
+输出例子:
+11 13 17 19 23 29 31 37 41 43
+47 53 59 61 67 71 73 79 83 89
+97 101 103
+
+
+素数：只能被1和本身整除
+
+		 */
+		int total = end - start + 1;
+
+		List su = new ArrayList();
+		boolean isSu = false;
+		for (int i = 0;i < 10000;i++){
+			//判断素数
+			if (i==2){
+				isSu = true;
+			}else if (i%2==0){
+				isSu = false;
+			}
+
+			if (isSu){
+				su.add(i);
+			}
+		}
+
+		for (int j = 1; j < total + 1; j++) {
+			if (j % 10 != 0) {
+				System.out.print(su.get(start + j) + " ");
+			}
+			if (j % 10 == 0) {
+				System.out.println(su.get(start + j) + "\n");
+			}
+
+		}
+
 	}
 }
