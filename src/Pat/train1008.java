@@ -1,6 +1,7 @@
 package Pat;
 
 import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
+import org.omg.PortableServer.LIFESPAN_POLICY_ID;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -15,8 +16,8 @@ public class train1008 {
         long startTime = System.currentTimeMillis();
         //train1001();
         //train1002();
-        train1003(5, 27);
-
+        //train1003(5, 27);
+        train1004();
 
         long endTime = System.currentTimeMillis();
         System.out.println("当前程序耗时：" + (endTime - startTime) + "ms");
@@ -202,13 +203,12 @@ public class train1008 {
     public static void train1004(){
         /*
         题目描述
-            大侦探福尔摩斯接到一张奇怪的字条：“我们约会吧！ 3485djDkxh4hhGE 2984akDfkkkkggEdsb s&hgsfdk d&Hyscvnm”。大侦探很
-
-            快就明白了，字条上奇怪的乱码实际上就是约会的时间“星期四 14:04”，因为前面两字符串中第1对相同的大写英文字母（大小写有区分）是
-
-            第4个字母'D'，代表星期四；第2对相同的字符是'E'，那是第5个英文字母，代表一天里的第14个钟头（于是一天的0点到23点由数字0到9、
-
-            以及大写字母A到N表示）；后面两字符串第1对相同的英文字母's'出现在第4个位置（从0开始计数）上，代表第4分钟。现给定两对字符串，
+            大侦探福尔摩斯接到一张奇怪的字条：“我们约会吧！ 3485djDkxh4hhGE 2984akDfkkkkggEdsb s&hgsfdk d&Hyscvnm”。大侦探很快就明白了，字条上奇怪的乱码实际上就是约会的时间“星期四 14:04”，因为
+            前面两字符串中
+            第1对相同的大写英文字母（大小写有区分）是第4个字母'D'，代表星期四；
+            第2对相同的字符是'E'，那是第5个英文字母，代表一天里的第14个钟头（于是一天的0点到23点由数字0到9、以及大写字母A到N表示）；
+            后面两字符串
+            第1对相同的英文字母's'出现在第4个位置（从0开始计数）上，代表第4分钟。现给定两对字符串，
 
             请帮助福尔摩斯解码得到约会的时间。
 
@@ -229,5 +229,136 @@ public class train1008 {
             输出例子:
             THU 14:04
          */
+        String A = "3485djDkxh4hhGE";
+        String B = "2984akDfkkkkggEdsb";
+        String C = "s&hgsfdk";
+        String D = "d&Hyscvnm";
+
+        /** 1、判断是否是字母
+         *  2、判断字母大小写
+         *  3、遍历比较
+         *  4、字符在字符串的位置
+        **/
+
+        //字符串转换成数组
+        char[] Achar = A.toCharArray();
+        //数组转换成List
+        List listA = new ArrayList();
+        for (char tmp:Achar){
+            listA.add(tmp);
+        }
+
+        //字符串转换成数组
+        char[] Bchar = B.toCharArray();
+        //数组转换成List
+        List listB = new ArrayList();
+        for (char tmp:Bchar){
+            listB.add(tmp);
+        }
+
+        List Day = new ArrayList() ;
+        for (int i = 0;i<Achar.length;i++){
+            if (Achar[i]>'A'&& Achar[i]<'Z'){
+                for (int j = 0;j<Bchar.length;j++){
+                    if (Bchar[j]==Achar[i]){
+                        Day.add(Bchar[j]);
+                    }
+                }
+            }
+        }
+
+
+        if (Day.size()>=2){
+            int day  = Day.get(0).toString().toCharArray()[0] - 'A';
+            String DAY;
+            switch (day){
+                case 0:
+                    DAY="MON";break;
+                case 1:
+                    DAY="TUE";break;
+                case 2:
+                    DAY="WED";break;
+                case 3:
+                    DAY="THU";break;
+                case 4:
+                    DAY="FRI";break;
+                case 5:
+                    DAY="SAT";break;
+                case 6:
+                    DAY="SUN";break;
+                default:
+                    DAY = "NO";break;
+            }
+            System.out.println("星期"+DAY);
+
+            int time  = Day.get(1).toString().toCharArray()[0] - 'A';
+            String TIEM;
+            switch (time){
+                case 0:TIEM="10";break;
+                case 1:TIEM="11";break;
+                case 2:TIEM="12";break;
+                case 3:TIEM="13";break;
+                case 4:TIEM="14";break;
+                case 5:TIEM="15";break;
+                case 6:TIEM="16";break;
+                case 7:TIEM="17";break;
+                case 8:TIEM="18";break;
+                case 9:TIEM="19";break;
+                case 10:TIEM="20";break;
+                case 11:TIEM="21";break;
+                case 12:TIEM="22";break;
+                case 13:TIEM="23";break;
+                case 14:TIEM="24";break;
+                default:
+                    TIEM = "NO";break;
+            }
+            System.out.println("小时"+TIEM);
+        }else {
+            System.out.printf("字符串不符合要求");
+        }
+
+        //字符串转换成数组
+        char[] Cchar = C.toCharArray();
+        //字符串转换成数组
+        char[] Dchar = D.toCharArray();
+
+        List min = new ArrayList() ;
+        for (int i = 0;i<Cchar.length;i++){
+            if (Cchar[i]>'a'&& Cchar[i]<'z'){
+                for (int j = 0;j<Dchar.length;j++){
+                    if (Dchar[j]==Dchar[i]){
+                        min.add(Dchar[j]);
+                    }
+                }
+            }
+        }
+
+        String mins = null;
+        if (min.size()>=1) {
+            for (int i = 0;i<Dchar.length;i++){
+                if (Dchar[i]==min.get(0).toString().toCharArray()[0]){
+                    mins = Integer.valueOf(i).toString();
+                }
+            }
+
+            System.out.println("星期" + mins);
+        }
+
+
+            System.out.println(min);
+
+    }
+
+
+/*
+*各种字符的unicode编码的范围：
+     * 汉字：[0x4e00,0x9fa5]（或十进制[19968,40869]）
+     * 数字：[0x30,0x39]（或十进制[48, 57]）
+     *小写字母：[0x61,0x7a]（或十进制[97, 122]）
+     * 大写字母：[0x41,0x5a]（或十进制[65, 90]）
+ */
+    public static boolean isLetterDigitOrChinese(String str) {
+        String regex = "^[a-z0-9A-Z\u4e00-\u9fa5]+$";//其他需要，直接修改正则表达式就好
+        return str.matches(regex);
     }
 }
