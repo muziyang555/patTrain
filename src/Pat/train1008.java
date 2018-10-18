@@ -1,9 +1,12 @@
 package Pat;
 
 import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
+import com.sun.xml.internal.ws.api.server.DocumentAddressResolver;
+import org.omg.CORBA.PUBLIC_MEMBER;
 import org.omg.PortableServer.LIFESPAN_POLICY_ID;
 
 import java.lang.reflect.Method;
+import java.util.AbstractCollection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +20,8 @@ public class train1008 {
         //train1001();
         //train1002();
         //train1003(5, 27);
-        train1004();
+        //train1004();
+        train1006();
 
         long endTime = System.currentTimeMillis();
         System.out.println("当前程序耗时：" + (endTime - startTime) + "ms");
@@ -241,6 +245,22 @@ public class train1008 {
         **/
 
         //字符串转换成数组
+        char[] Cchar = C.toCharArray();
+        //字符串转换成数组
+        char[] Dchar = D.toCharArray();
+
+        String mins = null;
+        List min = new ArrayList() ;
+        for (int i = 0;i<Cchar.length;i++){
+            if (Cchar[i]>'a'&& Cchar[i]<'z'){
+                if (Dchar[i]==Cchar[i]){
+                    mins = Integer.valueOf(i).toString();
+
+                }
+            }
+        }
+
+        //字符串转换成数组
         char[] Achar = A.toCharArray();
         //数组转换成List
         List listA = new ArrayList();
@@ -267,10 +287,9 @@ public class train1008 {
             }
         }
 
-
+        String DAY;
         if (Day.size()>=2){
             int day  = Day.get(0).toString().toCharArray()[0] - 'A';
-            String DAY;
             switch (day){
                 case 0:
                     DAY="MON";break;
@@ -312,46 +331,121 @@ public class train1008 {
                 default:
                     TIEM = "NO";break;
             }
-            System.out.println("小时"+TIEM);
+            System.out.println(DAY+" "+TIEM+":"+mins);
         }else {
             System.out.printf("字符串不符合要求");
         }
 
-        //字符串转换成数组
-        char[] Cchar = C.toCharArray();
-        //字符串转换成数组
-        char[] Dchar = D.toCharArray();
-
-        List min = new ArrayList() ;
-        for (int i = 0;i<Cchar.length;i++){
-            if (Cchar[i]>'a'&& Cchar[i]<'z'){
-                for (int j = 0;j<Dchar.length;j++){
-                    if (Dchar[j]==Dchar[i]){
-                        min.add(Dchar[j]);
-                    }
-                }
-            }
-        }
-
-        String mins = null;
-        if (min.size()>=1) {
-            for (int i = 0;i<Dchar.length;i++){
-                if (Dchar[i]==min.get(0).toString().toCharArray()[0]){
-                    mins = Integer.valueOf(i).toString();
-                }
-            }
-
-            System.out.println("星期" + mins);
-        }
 
 
-            System.out.println(min);
+        System.out.println("分钟" + mins);
+
 
     }
 
+    public static void train1005() {
+        /*
+        题目描述
+宋代史学家司马光在《资治通鉴》中有一段著名的“德才论”：“是故才德全尽谓之圣人，才德兼亡谓之愚人，德胜才谓之君子，才胜德谓之
+小人。凡取人之术，苟不得圣人，君子而与之，与其得小人，不若得愚人。”
 
-/*
-*各种字符的unicode编码的范围：
+现给出一批考生的德才分数，请根据司马光的理论给出录取排名。
+
+输入描述:
+输入第1行给出3个正整数，分别为：N（<=105），即考生总数；L（>=60），为录取最低分数线，即德分和才分均不低于L的考生才有资格
+被考虑录取；H（<100），为优先录取线——德分和才分均不低于此线的被定义为“才德全尽”，此类考生按德才总分从高到低排序；才分不到
+但德分到线的一类考生属于“德胜才”，也按总分排序，但排在第一类考生之后；德才分均低于H，但是德分不低于才分的考生属于“才德兼
+亡”但尚有“德胜才”者，按总分排序，但排在第二类考生之后；其他达到最低线L的考生也按总分排序，但排在第三类考生之后。
+
+随后N行，每行给出一位考生的信息，包括：准考证号、德分、才分，其中准考证号为8位整数，德才分为区间[0, 100]内的整数。数字间以空格分隔。
+
+
+输出描述:
+输出第1行首先给出达到最低分数线的考生人数M，随后M行，每行按照输入格式输出一位考生的信息，考生按输入中说明的规则从高到低排序。当某类考生中有多人
+总分相同时，按其德分降序排列；若德分也并列，则按准考证号的升序输出。
+
+输入例子:
+14 60 80
+10000001 64 90
+10000002 90 60
+10000011 85 80
+10000003 85 80
+10000004 80 85
+10000005 82 77
+10000006 83 76
+10000007 90 78
+10000008 75 79
+10000009 59 90
+10000010 88 45
+10000012 80 100
+10000013 90 99
+10000014 66 60
+
+输出例子:
+12
+10000013 90 99
+10000012 80 100
+10000003 85 80
+10000011 85 80
+10000004 80 85
+10000007 90 78
+10000006 83 76
+10000005 82 77
+10000002 90 60
+10000014 66 60
+10000008 75 79
+10000001 64 90
+         */
+        int deadline = 60;
+        int okline = 80;
+
+
+
+    }
+
+    public static void train1006() {
+        String in = "3862767 6 13530293 3";
+        String[] list = in.split(" ");
+
+        String A = list[0];
+        String B = list[2];
+
+        char[] Achar = A.toCharArray();
+        char[] Bchar = B.toCharArray();
+
+        int i = 0;
+        int j = 0;
+        for (char tmp : Achar){
+            if (tmp==list[1].toCharArray()[0]){
+                i++;
+            }
+        }
+
+        for (char tmp : Bchar){
+            if (tmp==list[3].toCharArray()[0]){
+                j++;
+            }
+        }
+
+        int totala = 0;
+        int totalb = 0;
+        i--;
+        j--;
+        while (i>=0){
+            totala+=Integer.valueOf(list[1])*(Math.pow(10,i));
+            i--;
+        }
+        while (j>=0){
+            totalb+=Integer.valueOf(list[3])*(Math.pow(10,j));
+            j--;
+        }
+        int total = totala+totalb;
+        System.out.println(total);
+
+    }
+
+    /*
+        *各种字符的unicode编码的范围：
      * 汉字：[0x4e00,0x9fa5]（或十进制[19968,40869]）
      * 数字：[0x30,0x39]（或十进制[48, 57]）
      *小写字母：[0x61,0x7a]（或十进制[97, 122]）
