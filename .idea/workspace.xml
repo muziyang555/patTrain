@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f278867d-ce57-4a21-8fe0-b9fc1a4d066a" name="Default" comment="so">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Pat/train1008.java" afterPath="$PROJECT_DIR$/src/Pat/train1008.java" />
-    </list>
+    <list default="true" id="f278867d-ce57-4a21-8fe0-b9fc1a4d066a" name="Default" comment="so" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,8 +19,8 @@
       <file leaf-file-name="train1008.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Pat/train1008.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="458" column="29" lean-forward="true" selection-start-line="458" selection-start-column="29" selection-end-line="458" selection-end-column="29" />
+            <state relative-caret-position="212">
+              <caret line="462" column="0" lean-forward="true" selection-start-line="462" selection-start-column="0" selection-end-line="462" selection-end-column="0" />
               <folding>
                 <element signature="docComment;class#train1008#0" expanded="false" />
                 <element signature="method#main#0;class#train1008#0" expanded="false" />
@@ -115,7 +113,6 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
-    <option name="y" value="-8" />
     <option name="width" value="1378" />
     <option name="height" value="744" />
   </component>
@@ -629,12 +626,12 @@
       <workItem from="1539306650471" duration="589000" />
       <workItem from="1539601955134" duration="6663000" />
       <workItem from="1539774170846" duration="8055000" />
-      <workItem from="1539865507142" duration="2688000" />
+      <workItem from="1539865507142" duration="3284000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32358000" />
+    <option name="totallyTimeSpent" value="32954000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -646,7 +643,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1378" height="744" extended-state="1" />
+    <frame x="-8" y="0" width="1378" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -953,8 +950,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Pat/train1008.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="458" column="29" lean-forward="true" selection-start-line="458" selection-start-column="29" selection-end-line="458" selection-end-column="29" />
+        <state relative-caret-position="212">
+          <caret line="462" column="0" lean-forward="true" selection-start-line="462" selection-start-column="0" selection-end-line="462" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#train1008#0" expanded="false" />
             <element signature="method#main#0;class#train1008#0" expanded="false" />
