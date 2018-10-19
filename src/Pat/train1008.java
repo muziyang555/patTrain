@@ -9,6 +9,7 @@ import java.lang.reflect.Method;
 import java.util.AbstractCollection;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * Created by liyangbd on 2018/10/8.
@@ -21,7 +22,8 @@ public class train1008 {
         //train1002();
         //train1003(5, 27);
         //train1004();
-        train1006();
+        //train1006();
+		train1007();
 
         long endTime = System.currentTimeMillis();
         System.out.println("当前程序耗时：" + (endTime - startTime) + "ms");
@@ -441,6 +443,30 @@ public class train1008 {
         }
         int total = totala+totalb;
         System.out.println(total);
+
+    }
+
+    public static void train1007() {
+        /*
+        本题要求计算A/B，其中A是不超过1000位的正整数，B是1位正整数。你需要输出商数Q和余数R，使得A = B * Q + R成立。
+         */
+        System.out.printf("请输入：");
+        Scanner sc = new Scanner(System.in);
+        String in = sc.nextLine();
+        String[] strings = in.split(" ");
+        List list = new ArrayList();
+        list.add(strings[0]);
+        list.add(strings[1]);
+        String a  = list.get(0).toString();
+		Integer A = Integer.valueOf(a);
+        Long B = Long.valueOf(strings[1]);
+
+        Long Q  = A / B;
+
+        Long R  = A % B;
+
+
+		System.out.println(Q + " "+R);
 
     }
 
